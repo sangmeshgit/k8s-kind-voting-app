@@ -68,8 +68,8 @@
 
 - Forward local ports for accessing the voting and result apps:
   ```bash
-  kubectl port-forward service/vote 5000:5000 --address=0.0.0.0 &
-  kubectl port-forward service/result 5001:5001 --address=0.0.0.0 &
+  kubectl port-forward service/vote 5000:8080 --address=0.0.0.0 &
+  kubectl port-forward service/result 5001:8081 --address=0.0.0.0 &
   ```
 
 ---
