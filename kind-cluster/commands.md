@@ -11,6 +11,20 @@
 - Create a 3-node Kubernetes cluster using Kind:
   ```bash
   kind create cluster --config=config.yml
+                     or
+  kind create cluster --name my-cluster --config=<(cat <<EOF
+kind: Cluster
+apiVersion: kind.x-k8s.io/v1alpha4
+
+nodes:
+- role: control-plane
+  image: kindest/node:v1.34.0
+- role: worker
+  image: kindest/node:v1.34.0
+- role: worker
+  image: kindest/node:v1.34.0
+EOF
+)
   ```
 
 - Check cluster information:
