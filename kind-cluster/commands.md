@@ -24,6 +24,20 @@
     image: kindest/node:v1.34.0
   EOF
   )
+  # kind-cluster.yaml
+kind: Cluster
+apiVersion: kind.x-k8s.io/v1alpha4
+nodes:
+# Two control-plane nodes (masters)
+- role: control-plane
+- role: control-plane
+
+# Three worker nodes
+- role: worker
+- role: worker
+- role: worker
+
+  kind create cluster --name multi-master --config kind-cluster.yaml
   ```
 
 - Check cluster information:
