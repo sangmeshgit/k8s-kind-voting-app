@@ -18,6 +18,10 @@
   nodes:
   - role: control-plane
     image: kindest/node:v1.34.0
+    extraPortMappings:
+    - containerPort: 30001
+      hostPort: 30001
+      protocol: TCP
   - role: worker
     image: kindest/node:v1.34.0
   - role: worker
