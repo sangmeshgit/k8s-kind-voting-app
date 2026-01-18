@@ -18,14 +18,17 @@
   nodes:
   - role: control-plane
     image: kindest/node:v1.34.0
+  - role: worker
+    image: kindest/node:v1.34.0
+  - role: worker
+    image: kindest/node:v1.34.0
     extraPortMappings:
-    - containerPort: 30001
-      hostPort: 30001
+    - containerPort: 80
+      hostPort: 80
       protocol: TCP
-  - role: worker
-    image: kindest/node:v1.34.0
-  - role: worker
-    image: kindest/node:v1.34.0
+    - containerPort: 443
+      hostPort: 433
+      protocol: TCP
   EOF
   )
   # kind-cluster.yaml
